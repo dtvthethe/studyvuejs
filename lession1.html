@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lession 1</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<h1>Hi Vuejs</h1>
+	<div id="app">
+		<p>{{message}}</p>
+		<input type="input" v-model="message">
+	</div>
+	<script type="text/javascript">
+		var abc = new Vue({
+			el: '#app',
+			data:{
+				message: 'This is Vue page'
+			}
+		})
+	</script>
+</body>
+</html>
