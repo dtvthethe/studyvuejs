@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>ABC</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}<br>
+      <input type="text" v-model="message" >
+      <button v-on:click="doShowHide">Click to hide/show</button>
+      <button v-bind:disable="isHiden">Click to hide/show</button>
+	</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+	  var app = new Vue({
+		  el:"#app",
+		  data:{
+        message: 'Xin chao',
+        isHiden: true,
+		  },
+     
+	  });
+    </script>
+  </body>
+</html>

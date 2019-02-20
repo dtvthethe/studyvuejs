@@ -1,0 +1,58 @@
+<div id="app">
+    <input type="text" @keyup.enter="addNewTodo" v-model="txtTodo"></input>
+    <hr>
+    <ul>
+      <todo-item 
+        v-for="(todo, index) in todos"
+        :key="index"
+        :title="todo.title"
+        @remove="todos.splice(index,1)"
+        >
+      </todo-item>
+    </ul>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.common.dev.js"></script>
+  
+  <script>
+    Vue.component('todo-item', {
+      template:'<li>{{title}} <button @click="$emit(\'remove\')">X</button></li>',
+      props:['title']
+    });
+  
+    var app = new Vue({
+      el:"#app",
+      data:{
+        txtTodo:'',
+        todos:[
+          {
+            id: 1,
+            title: 'luộc khoai',
+          },
+          {
+            id: 2,
+            title: 'cùng chị giã gạo',
+          },
+          {
+            id: 3,
+            title: 'thổi cơm'
+          },
+          {
+            id: 4,
+            title: 'nhổ cỏ vườn'
+          }
+        ]
+      },
+      methods:{
+        addNewTodo: function(event){
+          this.todos.push({
+            id: this.todos.length,
+            title:this.txtTodo
+          });
+          this.txtTodo = '';
+          console.log(event);
+        }
+      }
+    });
+  
+  </script>
