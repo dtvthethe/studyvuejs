@@ -1,0 +1,36 @@
+<div id="parent">
+    <p :style="{'font-size':parentFontSize+'px'}">{{parentText}}</p>
+    <children :titlechildrent="childrenText" @make-parent-text-lager="makeTextLager"></children>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.common.dev.js"></script>
+
+<script>
+  Vue.component('children', {
+    template:`
+      <div :style="{border: '1px solid red', 'margin-top':'10px'}">
+        <p>{{titlechildrent}}</p>
+        <button @click="$emit('make-parent-text-lager')">Make Parent text larger</button>
+      </div>
+    `,
+    data:function(){
+      return {};
+    },
+    props:['titlechildrent']
+  });
+
+    var parent = new Vue({
+        el: '#parent',
+        data: {
+            childrenText:'This is children',
+            parentText:'This is Parent Text',
+            parentFontSize:14,
+        },
+        methods:{
+          makeTextLager:function(){
+            this.parentFontSize++;
+          }
+        }
+    });
+
+</script>
