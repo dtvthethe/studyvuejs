@@ -27,6 +27,12 @@
         </select>
         <span>Menu: {{selectMenu}}</span>
     </div>
+    <hr>
+    <h3>Lazy</h3>
+    <div id="example-6">
+        <input type="text" v-model.lazy="txtLazy"><br>
+        <span>Noi dung: {{txtLazy}}</span>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.common.dev.js"></script>
@@ -35,6 +41,7 @@
     var app = new Vue({
         el: '#app',
         data: {
+            txtLazy:'',
             checked: true,
             checkedNames:[],
             picked: '',
