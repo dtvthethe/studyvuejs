@@ -10,7 +10,7 @@
     template:`
       <div :style="{border: '1px solid red', 'margin-top':'10px'}">
         <p>{{titlechildrent}}</p>
-        <button @click="$emit('make-parent-text-lager')">Make Parent text larger</button>
+        <button @click="$emit('make-parent-text-lager', 5)">Make Parent text larger</button>
       </div>
     `,
     data:function(){
@@ -27,8 +27,9 @@
             parentFontSize:14,
         },
         methods:{
-          makeTextLager:function(){
-            this.parentFontSize++;
+          makeTextLager:function(paramFromChildren){
+            this.parentFontSize+=paramFromChildren;
+            console.log(paramFromChildren)
           }
         }
     });
