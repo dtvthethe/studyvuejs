@@ -1,0 +1,48 @@
+<div id="app">
+    <button v-for="tab in tabs" @click="currenttab = 'tab-'+tab.id">{{tab.title}}</button>
+    <div :style="{border: '1px solid red', padding: '10px'}">
+      <component :is="getCurrentTab"></component>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.common.dev.js"></script>
+  
+  <script>
+    Vue.component('tab-home', {
+      template:'<div>Day la trang Home(Trang chu)</div>',
+    });
+    Vue.component('tab-about', {
+      template:'<div>Day la trang About(Trang Thong tin)</div>',
+    });
+    Vue.component('tab-archive', {
+      template:'<div>Day la trang Archive(Trang Luu tru)</div>',
+    });
+  
+  
+    var app = new Vue({
+      el:'#app',
+      data:{
+        tabs:[
+          {
+            id:'home',
+            title:'Trang chu',
+          },
+          {
+            id:'about',
+            title:'Thong tin',
+          },
+          {
+            id:'archive',
+            title:'Lu tru',
+          }
+        ],
+        currenttab: 'tab-home',
+      },
+      computed:{
+        getCurrentTab:function(){
+          return this.currenttab;
+        }
+      }
+    });
+  </script>
+  
